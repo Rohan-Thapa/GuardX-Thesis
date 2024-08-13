@@ -1,0 +1,16 @@
+input,label
+"<script>alert('XSS')</script>",xss
+"<img src='x' onerror='alert(1)'>",xss
+"<body onload=\"alert('XSS')\">",xss
+"<iframe src=\"javascript:alert(1)\"></iframe>",xss
+"<svg onload=\"alert('XSS')\"></svg>",xss
+"<b onmouseover=\"alert(1)\">hover me!</b>",xss
+"<link rel=\"stylesheet\" href=\"javascript:alert(1)\">",xss
+"<div onmouseover=\"alert('XSS')\">hover</div>",xss
+"<style>@import \"javascript:alert(1)\";</style>",xss
+"<object data=\"javascript:alert(1)\"></object>",xss
+"<a href=\"javascript:alert(1)\">click me</a>",xss
+"<form action=\"javascript:alert(1)\"><input type=\"submit\"></form>",xss
+"<meta http-equiv=\"refresh\" content=\"0;url=javascript:alert(1)\">",xss
+"<table background=\"javascript:alert(1)\"></table>",xss
+"<input type=\"button\" onclick=\"alert(1)\" value=\"Click me\">",xss

@@ -1,0 +1,16 @@
+input,label
+"' OR '1'='1'; --",sql_injection
+"' DROP TABLE users; --",sql_injection
+"'; SELECT * FROM users WHERE 'a'='a",sql_injection
+"'; EXEC xp_cmdshell('dir'); --",sql_injection
+"'; INSERT INTO users (username password) VALUES ('admin' 'pass'); --",sql_injection
+"'; UPDATE users SET password='pass' WHERE username='admin'; --",sql_injection
+"1' OR '1' = '1' --",sql_injection
+"'; SHUTDOWN; --",sql_injection
+"admin' --",sql_injection
+"' OR 1=1 --",sql_injection
+"' OR 'x'='x",sql_injection
+"' AND 1=0 UNION ALL SELECT NULL NULL NULL NULL --",sql_injection
+"' UNION SELECT username password FROM users --",sql_injection
+"' OR EXISTS(SELECT 1 FROM users) --",sql_injection
+"' AND SUBSTRING(@@version 1 1) = 'X' --",sql_injection

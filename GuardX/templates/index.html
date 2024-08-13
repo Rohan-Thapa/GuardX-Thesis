@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="AI, XSS, SQL-Injection, Shell Code" />
+    <meta name="description" content="The testing of various websites attacks" />
+    <meta name="author" content="Rohan Thapa" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GuardX Sentinel - A Security Solution for your Websites</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/title_logo.png') }}" />
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <!-- Unicons iconscout and Font-Awesome-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="preloader"></div>
+    <!-- This section is the nav bar and slider of image -->
+    <section class="welcome">
+        <!-- Header -->
+        <header>
+            <div class="logo" onclick="goLink('http://127.0.0.1:5000/home')">GuardX</div>
+            <ul class="menu">
+                <li><span onclick="scrollToSection('News')">News</span></li>
+                <li><span onclick="scrollToSection('Info')">Info</span></li>
+                <li><span onclick="scrollToSection('Test')">Test</span></li>
+            </ul>
+            <div class="report-gen" data-tooltip="Get description of what it does when hover.">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+                    <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <div class="tooltip">Generate a report.</div>
+            </div>
+        </header>
+
+        <!-- Slider -->
+
+        <div class="slider">
+            <!-- List Items -->
+            <div class="list">
+
+                <div class="item active">
+                    <img src="{{ url_for('static', filename='image/secure.jpg') }}" />
+                    <div class="content">
+                        <p>guardx secure</p>
+                        <h2>Secure</h2>
+                        <p>Here at GuardX, we provide our customers the felling of Secure with us and their data protected.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/safe.jpg') }}" />
+                    <div class="content">
+                        <p>guardx safe</p>
+                        <h2>Safe</h2>
+                        <p>Providing a safe platform for the users for the better test the WAF and which model is the best.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/security.jpg') }}" />
+                    <div class="content">
+                        <p>guardx security</p>
+                        <h2>Security</h2>
+                        <p>The actual work of WAF is to provide the seucrity for the web application and we are also doing the same.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/protection.jpg') }}" />
+                    <div class="content">
+                        <p>guardx protection</p>
+                        <h2>Protection</h2>
+                        <p>The protection which are provided to our users is on the perfect level and are tested on different levels for make it sure.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/prevention.jpg') }}" />
+                    <div class="content">
+                        <p>guardx prevention</p>
+                        <h2>Prevention</h2>
+                        <p>As prevention is better than cure we regularly check if there are any flaws which could occur during the testing of the web application.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Button Arrows -->
+            <div class="arrows">
+                <button id="prev"><</button>
+                <button id="next">></button>
+            </div>
+
+            <!-- Thumbnails for Slider -->
+            <div class="thumbnail">
+
+                <div class="item active">
+                    <img src="{{ url_for('static', filename='image/secure.jpg') }}" />
+                    <div class="content">
+                        Secure
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/safe.jpg') }}" />
+                    <div class="content">
+                        Safe
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/security.jpg') }}" />
+                    <div class="content">
+                        Security
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/protection.jpg') }}" />
+                    <div class="content">
+                        Protection
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ url_for('static', filename='image/prevention.jpg') }}" />
+                    <div class="content">
+                        Prevention
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <div class="card_container">
+            <div class="card">
+                <img src="{{ url_for('static', filename='image/Product_logo_Image.png') }}" alt="GuardX Logo" class="card_img" />
+                <div class="card_content">
+                    <h1>Get me a report!</h1>
+                    <p>You are going to generate a report with all the models and how they perfromed on each with proper data-points which determine the model.</p>
+                    <div class="groups_btns">
+                        <button id="generateReportButton" class="card_inner_btn req_send">Generate</button>
+                        <button class="card_inner_btn leave_it">Next Time</button>
+                    </div>
+                </div>
+                <p class="card_close"><i class="uil uil-multiply"></i></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- This section for the slider with content -->
+    <section class="main-container" id="News">
+        <div class="tab-nav-bar">
+            <div class="tab-navigation">
+                <i class="uil uil-angle-left left-btn"></i>
+                <i class="uil uil-angle-right right-btn"></i>
+
+                <ul class="tab-menu">
+                    <li class="tab-btn active">Why?</li>
+                    <li class="tab-btn">Which?</li>
+                    <li class="tab-btn">How?</li>
+                    <li class="tab-btn">Where?</li>
+                    <li class="tab-btn">Difference</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-content">
+            <!-- The dimension of the image below should be 3831x2160 -->
+
+            <div class="tab active">
+                <div class="row">
+                    <div class="left-column">
+                        <div class="img-card">
+                            <img src="{{ url_for('static', filename='image/engati.jpg') }}" alt="Something" />
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="info">
+                            <h2 class="ro-title">Why AI?</h2>
+                            <div class="description">
+                                <p>AI in cybersecurity is a new trend.</p>
+                                <p>AI enhances cybersecurity by rapidly detecting threats, improving response times, enabling proactive defense, and reducing experts' workload.</p>
+                                <p class="source" onclick="goLink('https://www.engati.com/blog/ai-in-cybersecurity')">Engati</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="ro-category">AI in Security.</h1>
+            </div>
+
+            <div class="tab">
+                <div class="row">
+                    <div class="left-column">
+                        <div class="img-card">
+                            <img src="{{ url_for('static', filename='image/which_ai.jpg') }}" alt="Something" />
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="info">
+                            <h2 class="ro-title">Which AI?</h2>
+                            <div class="description">
+                                <p>Various Types of AI are there and to choose the best is important.</p>
+                                <p>While choosing the best AI for the task to be done, we need to consider what types of datapoints we need to work with.</p>
+                                <p class="source" onclick="goLink('https://www.simplilearn.com/tutorials/artificial-intelligence-tutorial/types-of-artificial-intelligence')">SimpliLearn</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="ro-category">AI are also Different.</h1>
+            </div>
+
+            <div class="tab">
+                <div class="row">
+                    <div class="left-column">
+                        <div class="img-card">
+                            <img src="{{ url_for('static', filename='image/how_ai.png') }}" alt="Something" />
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="info">
+                            <h2 class="ro-title">How AI?</h2>
+                            <div class="description">
+                                <p>How AI can be implemented for making our task easier.</p>
+                                <p>AI technologies can boost essential business functions, but organizations need a solid foundation to add value to their strategy and planning.</p>
+                                <p class="source" onclick="goLink('https://www.techtarget.com/searchenterpriseai/tip/10-steps-to-achieve-AI-implementation-in-your-business')">TechTarget</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="ro-category">Implement AI in your Project.</h1>
+            </div>
+
+            <div class="tab">
+                <div class="row">
+                    <div class="left-column">
+                        <div class="img-card">
+                            <img src="{{ url_for('static', filename='image/where_ai.png') }}" alt="Something" />
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="info">
+                            <h2 class="ro-title">Where AI?</h2>
+                            <div class="description">
+                                <p>AI makes life easier and more automated.</p>
+                                <p>AI benefits humans by making life more automated, improving accessibility, and enhancing control over various aspects of daily life.</p>
+                                <p class="source" onclick="goLink('https://medium.com/vsinghbisen/where-is-artificial-intelligence-used-areas-where-ai-can-be-used-14ba8c092e73')">Medium</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="ro-category">See where you can add AI.</h1>
+            </div>
+
+            <div class="tab">
+                <div class="row">
+                    <div class="left-column">
+                        <div class="img-card">
+                            <img src="{{ url_for('static', filename='image/difference.jpg') }}" alt="Something" />
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="info">
+                            <h2 class="ro-title">Difference Made</h2>
+                            <div class="description">
+                                <p>AI system is a machine-based system that generates outputs based on human-defined objectives.</p>
+                                <p>When we use the AI we can have our results generated easily and our tasks will get much more easier compared to if we don't use it.</p>
+                                <p class="source" onclick="goLink('https://lasserouhiainen.com/9-reasons-why-artificial-intelligence-is-important-now/')">LasseRouhiainen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="ro-category">AI makes works easier.</h1>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Accordion Section Questions -->
+    <section class="accordion-main" id="Info">
+        <ul class="accordion">
+            <li>
+                <input type="radio" name="accordion" id="first" checked />
+                <label for="first">What is GuardX?</label>
+                <div class="content">
+                    <p>GuardX is a AI website protection tool which test for Cross Site Scripting (XSS), SQL Injection and Shell Code on the website to provide detail information on attacks on the paltform.</p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="accordion" id="second" />
+                <label for="second">How to use GuardX?</label>
+                <div class="content">
+                    <p>You can just test it for the free but on the professional level, there is the subscription based services which will provide various additional features.</p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="accordion" id="third" />
+                <label for="third">Who should use GuardX?</label>
+                <div class="content">
+                    <p>GuardX is for those organization which are working in the online platform and requires to be available all the time. It also provides the types of attacks being performed in the platform.</p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" name="accordion" id="fourth" />
+                <label for="fourth">Who Developed GuardX?</label>
+                <div class="content">
+                    <p>GuardX is a AI protection tool which is developed by Ineffable Inc. (Imaginary) founded by Rohan Thapa, which works on the AI security for the online companies.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Testing -->
+    <section class="guard-test" id="Test">
+        <div class="content">
+            <h1>GuardX Sentinel for Security!</h1>
+            <p>The GuardX is the product of trust as it has been trained with huge data sets.</p>
+            <form action="#" method="post" class="generate-form">
+                <input type="text" class="prompt-input" placeholder="Provide Your Payload Here..." required />
+                <div class="controls">
+                    <select class="test-type">
+                        <option value="xss">XSS Test</option>
+                        <option value="sql_injection">SQL Test</option>
+                        <option value="shell_code">Shell Code</option>
+                        <option value="all" selected>All Test</option>
+                    </select>
+                    <button type="submit" class="generate-btn">Generate</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Results Table Section -->
+    <section class="result result-table">
+        <div class="result-header">
+            <h1>Test Results (<span class="current_dates"></span>)</h1>
+        </div>
+        <div class="result-body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> ID </th>
+                        <th> Test type </th>
+                        <th> Payload </th>
+                        <th> Logistic Regression </th>
+                        <th> N-Gram (Imbalanced) </th>
+                        <th> N-Gram (Balanced) </th>
+                        <th> Found </th>
+                        <th> Delete </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> If </td>
+                        <td> You Have </td>
+                        <td> Seen this </td>
+                        <td>
+                            <p class="status pass">than there</p>
+                        </td>
+                        <td>
+                            <p class="status pass">is network</p>
+                        </td>
+                        <td>
+                            <p class="status fail">problem</p>
+                        </td>
+                        <td> Detected / API / Failed </td>
+                        <td> <i class="fas fa-trash delete-icon"></i> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer and Ending -->
+    <section class="footer">
+        <p>Copyright &copy; 2024 - GuardX Sentinel by Ineffable Inc. | All Rights Reserved</p>
+        <p>
+            <img src="{{ url_for('static', filename='image/Ineffable_with_text-removebg-preview.png') }}" width="250px" />
+        </p>
+        <!-- <p>Developed by Rohan Thapa in <span class="fill-color">Nepal</span></p> -->
+    </section>
+
+    <!-- The top scroll button -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <script>
+        var loader = document.getElementById("preloader");
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+        })
+
+        window.addEventListener('scroll', function() {
+            const button = document.getElementById('backToTop');
+            if (window.scrollY > 100) { // Show scroll-top button after scrolling down 100px by the user.
+                button.classList.add('show');
+            } else {
+                button.classList.remove('show');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+
+<!-- This is just the PoC (Proof of Concept) by Rohan Thapa, i.e. me, for the FYP. -->

