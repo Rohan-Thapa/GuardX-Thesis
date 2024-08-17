@@ -1,6 +1,6 @@
 # GuardX-Thesis
 
->GUARDX SENTINEL || Product of Ineffable Inc.
+>GUARDX SENTINEL || Product of Ineffable Inc. (Digital)
            
 GuardX Sentinel is the product developed by the Ineffable Inc. which is working in the development of various products which will effectively help in the solution of the various security problems which are introduced each time.
 With the help of this tool, you can have the proper 
