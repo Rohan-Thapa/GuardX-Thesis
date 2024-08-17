@@ -5,6 +5,9 @@
 GuardX Sentinel is the product developed by the Ineffable Inc. which is working in the development of various products which will effectively help in the solution of the various security problems which are introduced each time.
 With the help of this tool, you can have the proper 
 
+## Important Files of GuardX Sentinel
+![File Structure of GuardX](GuardX/research/file_structure.png)
+
 Just go the project directory named as GuardX and on it in order to run the project perform the following.
 
 Run the command as below for downloading the requirements needed for the project to run.
