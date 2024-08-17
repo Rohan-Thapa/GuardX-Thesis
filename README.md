@@ -35,3 +35,9 @@ On the browser you can run the web application in four different ways after runn
 - localhost:5000/home
 - 127.0.0.1:5000
 - 127.0.0.1:5000/home
+
+### Developed by -
+> Rohan Thapa (All Rights Reserved &copy; July, 2024)
+> With the Imaginary Company, Ineffable Inc. (Digital)
+
+![Ineffable Inc. (Digital)](GuardX/static/image/Ineffable_with_text-removebg-preview.png)
