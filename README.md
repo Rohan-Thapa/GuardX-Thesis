@@ -2,8 +2,8 @@
 
 >GUARDX SENTINEL || Product of Ineffable Inc. (Digital)
            
-GuardX Sentinel is the product developed by the Ineffable Inc. which is working in the development of various products which will effectively help in the solution of the various security problems which are introduced each time.
-With the help of this tool, you can have the proper 
+GuardX Sentinel is the product developed by the Ineffable Inc. (Digital), an imaginary company which is working in the development of various products which will effectively help in the solution of the various security problems which are introduced each time.
+With the help of this tool, you can have the proper solution realted to various web applications attacks through the use of the traditional Firewalls for the protection without compromising the CIA Traid of the application.
 
 ## Important Files of GuardX Sentinel
 ![File Structure of GuardX](GuardX/research/file_structure.png)
