@@ -8,7 +8,7 @@ With the help of this tool, you can have the proper solution realted to various 
 ## Important Files of GuardX Sentinel
 ![File Structure of GuardX](GuardX/research/file_structure.png)
 
-Just go the project directory named as GuardX and on it in order to run the project perform the following.
+Just go to the project directory named as GuardX and on it, in order to run the project perform the following.
 
 Run the command as below for downloading the requirements needed for the project to run.
 ## For Widows
